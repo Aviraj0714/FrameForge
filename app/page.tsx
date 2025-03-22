@@ -1,10 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Authentication from "./_components/Authentication";
-import ProfileAvatar from "./_components/ProfileAvatar";
 import { useAuthContext } from "./provider";
 
 export default function Home() {
@@ -22,7 +20,7 @@ export default function Home() {
 
           <div className="flex items-center gap-6">
             <Link href="/dashboard">
-              <Button className="bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-2 text-lg rounded-lg hover:scale-105 transition-all">
+              <Button className="bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-2 text-lg rounded-lg transition-transform hover:scale-105">
                 Get Started →
               </Button>
             </Link>
@@ -32,45 +30,25 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center text-center pt-40 pb-20">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl font-bold leading-tight"
-        >
+        <h1 className="text-5xl font-bold leading-tight opacity-0 animate-fade-in">
           Convert Wireframe to{" "}
           <span className="bg-gradient-to-r from-purple-500 to-blue-600 text-transparent bg-clip-text">
             Code Instantly
           </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mt-4 text-lg text-gray-400 max-w-2xl"
-        >
+        </h1>
+        <p className="mt-4 text-lg text-gray-400 max-w-2xl opacity-0 animate-fade-in delay-200">
           Revolutionize your workflow with AI-powered wireframe-to-code conversion.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mt-8"
-        >
+        <div className="mt-8 opacity-0 animate-fade-in delay-400">
           <Authentication>
-            <Button className="px-6 py-3 text-lg bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg shadow-lg hover:scale-105 transition-all">
+            <Button className="px-6 py-3 text-lg bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg shadow-lg transition-transform hover:scale-105">
               Get Started
             </Button>
           </Authentication>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="mt-12"
-        >
+        <div className="mt-12 opacity-0 animate-fade-in delay-600">
           <Image
             src="/Wireframetocode.png"
             alt="Wireframe to Code"
@@ -78,7 +56,7 @@ export default function Home() {
             height={500}
             className="rounded-xl shadow-xl"
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -91,15 +69,14 @@ export default function Home() {
             { title: "Free to Use", desc: "No hidden charges.", icon: "💰" },
             { title: "24/7 Support", desc: "Get help anytime.", icon: "📞" },
           ].map((feature, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ scale: 1.05 }}
-              className="p-6 bg-[#1A1A1A] rounded-xl shadow-md text-center hover:shadow-xl transition-all"
+              className="p-6 bg-[#1A1A1A] rounded-xl shadow-md text-center hover:shadow-lg transition-transform hover:scale-105"
             >
               <div className="text-5xl">{feature.icon}</div>
               <h3 className="mt-3 text-xl font-semibold">{feature.title}</h3>
               <p className="mt-2 text-gray-400">{feature.desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
